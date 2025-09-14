@@ -17,7 +17,7 @@
 ## 🌍 Live Demo
 
 🧑‍💻 **Check it Live Here**:  
-🔗 
+🔗 https://simon-sequence.vercel.app/
 
 ---
 
@@ -59,7 +59,7 @@ This is a static web project and does not require any build steps or dependencie
 ### 1️⃣ Clone the Repository (Optional)
 If you have git installed:
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/samjaiswal51/Simon-s-Sequence.git
 ```
 Alternatively, you can just download the index.html, style.css, and app.js files.
 
