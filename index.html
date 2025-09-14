@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon's Sequence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="info-column">
+            <h1 class="title">Simon's Sequence 🎮</h1>
+
+            <div class="about-section">
+                <h2>About the Game</h2>
+                <p>Test your memory and reflexes with this modern take on a classic game. Watch the neon lights,
+                    memorize the sequence, and repeat the pattern. How long can you last before the challenge overwhelms
+                    you?</p>
+            </div>
+
+            <div class="instructions">
+                <h2>How to Play</h2>
+                <ul>
+                    <li>👀 Watch the sequence of flashing neon pads.</li>
+                    <li>👉 Repeat the sequence by clicking the pads in the same order.</li>
+                    <li>📈 The sequence gets longer and faster with each level.</li>
+                    <li>❌ One wrong move and the game is over!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="game-column">
+            <div class="info-panel">
+                <div class="tag level">🏆 Level: <span id="level">0</span></div>
+                <div class="tag status">💡 Status: <span id="status">Ready to start</span></div>
+            </div>
+
+            <div class="message" id="message">Press Start Game to begin!</div>
+
+            <div class="game-board">
+                <div class="btn green disabled" id="green"></div>
+                <div class="btn red disabled" id="red"></div>
+                <div class="btn yellow disabled" id="yellow"></div>
+                <div class="btn blue disabled" id="blue"></div>
+            </div>
+
+            <button class="start-btn" id="start-btn">Start Game</button>
+        </div>
+    </main>
+
+    <div class="game-over" id="game-over">
+        <div class="game-over-content">
+            <h2>Game Over!</h2>
+            <p>You reached level <span id="final-level">1</span></p>
+            <p>Press any key or click restart to play again.</p>
+            <button class="restart-btn" id="restart-btn">Restart Game</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
