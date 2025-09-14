@@ -1,0 +1,245 @@
+/* --- Basic Setup & Fonts --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #e0e0e0;
+  padding: 20px;
+}
+
+/* --- Main Layout & Glassmorphism Panels --- */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1400px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.info-column, .game-column {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-column {
+  width: 45%;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-column {
+  width: 55%;
+  align-items: center;
+}
+
+/* --- Typography & Content Styling --- */
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #13f1fc, #0470dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #13f1fc, #0470dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.about-section p, .instructions ul {
+  font-weight: 300;
+  line-height: 1.6;
+  color: #c0c0c0;
+}
+
+.about-section {
+  margin-bottom: 30px;
+}
+
+.instructions ul {
+  list-style: none;
+}
+
+.instructions li {
+  margin-bottom: 10px;
+}
+
+/* --- Right Column: Game Elements --- */
+.info-panel {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  min-height: 45px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #13f1fc;
+}
+
+/* --- Game Board & Neon Buttons (Squircle Shape) --- */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 320px;
+  height: 320px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  width: 150px;
+  height: 150px;
+  border-radius: 35px; /* Squircle shape */
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.btn:active, .btn.active {
+  transform: scale(0.95);
+  filter: brightness(1.5);
+}
+
+.green { background-color: #21ff34; box-shadow: 0 0 20px #21ff34; }
+.red   { background-color: #ff4b4b; box-shadow: 0 0 20px #ff4b4b; }
+.yellow{ background-color: #fff200; box-shadow: 0 0 20px #fff200; }
+.blue  { background-color: #13f1fc; box-shadow: 0 0 20px #13f1fc; }
+
+.btn.active { box-shadow: 0 0 30px #fff, 0 0 60px #fff; }
+.btn.disabled { cursor: not-allowed; opacity: 0.3; box-shadow: none; filter: grayscale(1); }
+
+/* --- Start & Restart Buttons --- */
+@keyframes animated-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.start-btn, .restart-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+  background-size: 200% 200%;
+}
+
+.start-btn {
+  background-image: linear-gradient(45deg, #00c6ff, #0072ff, #00c6ff);
+  animation: animated-gradient 4s ease infinite;
+}
+
+.restart-btn {
+  background-image: linear-gradient(45deg, #f7971e, #ffd200, #f7971e);
+}
+
+.start-btn:hover, .restart-btn:hover {
+  transform: scale(1.1);
+}
+
+/* --- Game Over Screen --- */
+.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: none; /* Controlled by JS */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-over-content {
+  text-align: center;
+  /* Keyframes defined in previous example are fine, so they can be reused */
+}
+
+.game-over h2 {
+  font-size: 4rem;
+  color: #ff4b4b;
+  margin-bottom: 20px;
+}
+
+.game-over p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    max-width: 500px;
+  }
+  .info-column, .game-column {
+    width: 100%;
+  }
+  .info-column {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  .instructions ul {
+    text-align: left;
+    display: inline-block;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .game-board {
+    width: 280px;
+    height: 280px;
+    gap: 15px;
+  }
+  .btn {
+    width: 132px;
+    height: 132px;
+    border-radius: 30px;
+  }
+}
